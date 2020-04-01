@@ -4,7 +4,7 @@
   <ul>
     <div *ngFor='let quote of quotes;let i = index'>
       <li>
-        {{ quote.name }} posted on {{quote.postDate|date}}
+        {{ quote.name }} posted on {{quote.postDate|date|uppercase}}
       </li>
       <button (click)='toggleDetails(i)'>Toogle Details</button>
       <app-quote-detail *ngIf='quote.showAuthor' [quote]='quote' (isViewed) = 'viewedQuote($event,i)'></app-quote-detail>
