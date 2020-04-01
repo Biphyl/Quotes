@@ -1,4 +1,5 @@
 <p>
   {{ quote.author }}
 </p>
-<button (click)='quoteViewed(true)'>Viewed</button>
+<p>This quote was posted on {{quote.postDate|dateCount}}</p>
+<button (click)= 'quoteDelete(true)'>Delete Quote</button>

@@ -14,6 +14,10 @@ export class QuoteDetailComponent implements OnInit {
   quoteViewed(viewed:boolean){
     this.isViewed.emit(viewed);
   }
+
+  quoteDelete(viewed:boolean){
+    this.isViewed.emit(viewed)
+  }
   constructor() { }
 
   ngOnInit() {
