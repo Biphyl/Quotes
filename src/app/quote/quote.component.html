@@ -1,33 +1,31 @@
-<div class="container">
+<div class="container-fluid">
+    
+
   <h1>My Quotes</h1>
-  <hr>
 
-  <div class="row">
-    <div class="col-md-6">
-      <div *ngFor='let quote of quotes;let i = index'>
-        <div>
-          <h4>{{ quote.name }} posted on {{quote.postDate|date|uppercase}}</h4>
-          <button (click)='toggleDetails(i)' class="btn btn-primary">Toggle Details</button>
-        </div>
 
-        <div *ngIf='quote.showAuthor'>
-          <app-quote-detail [quote]='quote' (isViewed) = 'deleteQuote($event,i'></app-quote-detail>
-        </div>
+<div class="row">
+
+<div class="col md-6">
+
+<div *ngFor='let quote of quotes ;let i = index'>
+  <div class="card">
+      <h3 appHighlight> {{quote.name}} </h3>
+      <div class="card">
+          <app-quote-detail *ngIf='quote.showDescription' [quote]='quote' (isComplete)='deleteQuote($event,i)'></app-quote-detail>
+          
+         
+          
       </div>
-    </div>
   </div>
+  <button (click)='toggleDetails(i)' class="bg-primary text-white">View More</button>
+</div>
+</div>
+<div class="col-md 6">
+<div class="card">
+  <app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>
+</div>
+</div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
