@@ -8,9 +8,9 @@ import { Quote } from './quote';
 })
 export class AppComponent {
   quotes:Quote[] = [
-    {id:1, name:'Dont look at the clock, do what it does keep moving', author:'Biron Lovine'},
-    {id:2, name:'Difficulties in your life do not come to destroy you but to help you realize your potential and future', author:'Delzel Ochieng'},
-    {id:3, name:'There is nothing good that comes easy', author:'Lucy Wigwa'},
-    {id:3, name:'Excuses are the nails that buikd the house of failer', author:'Lovine Otieno'},
-  ];
+    new Quote(1, 'Dont look at the clock, do what it does keep moving', 'Biron Lovine'),
+    new Quote(2, 'Difficulties in your life do not come to destroy you but to help you realize your potential and future', 'LucycWigwa'),
+    new Quote(3, 'There is nothing good that comes easy', 'Denzel Ochieng'),
+    new Quote(3, 'Excuses are the nails that buikd the house of failer', 'Lovine Otieno')
+     ];
 }
