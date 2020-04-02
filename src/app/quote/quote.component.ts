@@ -1,5 +1,9 @@
+
+
 import { Component, OnInit } from '@angular/core';
 import { Quote } from '../quote';
+
+
 
 @Component({
   selector: 'app-quote',
@@ -8,31 +12,62 @@ import { Quote } from '../quote';
 })
 export class QuoteComponent implements OnInit {
 
+
   quotes:Quote[] = [
-    new Quote(1, 'Dont look at the clock, do what it does keep moving', 'Biron Lovine', new Date(2020,4,21)),
-    new Quote(2, 'Difficulties in your life do not come to destroy you but to help you realize your potential and future', 'LucycWigwa', new Date(2019,5,16)),
-    new Quote(3, 'There is nothing good that comes easy', 'Denzel Ochieng', new Date(2015,8,3)),
-     ];
+    new Quote(1,"Believe in yourself! Have faith in your abilities! Without a humble but reasonable confidence in your own powers you cannot be successful or happy.", "Norman Vincent Peale", new Date(1980, 2, 14)),
+    new Quote(2,"Press forward. Do not stop do not linger in your journey but strive for the mark set before you.", "George Whitefield", new Date(1880, 7, 21)),
 
-     toggleDetails(index){
-       this.quotes[index].showAuthor = !this.quotes[index].showAuthor;
-     }
+    new Quote(3,'Dont watch the clock, do what it does. Keep going', "Sam Levenson",  new Date(1990, 6, 19))
+  ];
+  toggleDetails(index) {
+    this.quotes[index].showAuthor = !this.quotes[index].showAuthor;
+  }
+  deleteQuote(isComplete, index) {
+    if (isComplete) {
+      let toDelete = confirm(`Are you sure you want to delete ${this.quotes[index].quotes}?`)
+      if (toDelete) {
+        this.quotes.splice(index, 1);
+      }
+    }
+  }
 
-     viewedQuote(isViewed, index){
-       if (isViewed) {
-         this.quotes.splice(index,1);
-       }
-     }
 
-     deleteQuote(isViewed, index){
-       if (isViewed) {
-         let toDelete = confirm('Are you sure you want to delete $(this.quotes[index].name?')
+  addNewQuote(quote) {
+    let quoteLength = this.quotes.length;
+    quote.id = quoteLength + 1;
+    quote.completeDate = new Date(quote.completeDate)
+    this.quotes.push(quote)
+  }
+  addVote(quote, index) {
+    if (quote) {
+      this.quotes[index].upvote += 1;
+    }
+  }
+  lessVote(quote, index) {
+    if (quote) {
+      this.quotes[index].downvote += 1
+    }
+  }
+  initNum: number
+  finNum: number
+  counter: number
 
-         if (toDelete){
-           this.quotes.splice(index,1)
-         }
-       }
-     }
+  mostLiked() {
+    this.initNum = 0
+    this.finNum = 0
+    for (this.counter = 0; this.counter < this.quotes.length; this.counter++) {
+      this.finNum = this.quotes[this.counter].upvote;
+
+      if (this.finNum > this.initNum) {
+        this.initNum = this.finNum
+      }
+
+
+
+    }
+
+    return this.initNum;
+  }
   constructor() { }
 
   ngOnInit() {
