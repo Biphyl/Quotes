@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Quote } from '@angular/compiler';
+import { Quote } from "../quote";
 
 @Component({
   selector: 'app-quote-detail',
@@ -7,17 +7,24 @@ import { Quote } from '@angular/compiler';
   styleUrls: ['./quote-detail.component.css']
 })
 export class QuoteDetailComponent implements OnInit {
-
-  @Input() quote:Quote;
-  @Output() isViewed = new EventEmitter<boolean>();
-
-  quoteViewed(viewed:boolean){
-    this.isViewed.emit(viewed);
+  @Input() quote :Quote;
+  @Output() isComplete = new EventEmitter<boolean>();
+  quoteDelete(complete:boolean){
+    this.isComplete.emit(complete);
   }
+  @Output () voteIncrease = new EventEmitter<boolean>();
+  @Output () voteDecrease = new EventEmitter<boolean> ();
+   ifIncrease(one:boolean){
+     this.voteIncrease.emit(one);
 
-  quoteDelete(viewed:boolean){
-    this.isViewed.emit(viewed)
-  }
+   }
+   ifDecrease(two:boolean) {
+     this.voteDecrease.emit(two);
+   }
+quoteDan(purge:boolean){
+  this.isComplete.emit(purge);
+}
+ 
   constructor() { }
 
   ngOnInit() {

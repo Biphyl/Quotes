@@ -1,5 +1,27 @@
-<p>
-  {{ quote.author }}
-</p>
-<p>This quote was posted on {{quote.postDate|dateCount}}</p>
-<button (click)= 'quoteDelete(true)' class="btn btn-outline-danger">Delete Quote</button>
+
+<link href="https://fonts.googleapis.com/css?family=Akronim|Bowlby+One+SC|Sancreek|Srisakdi&display=swap"
+rel="stylesheet">
+<div>
+<div class="row">
+        <div class="col-md-4">
+                <div class="card">
+                        <h4> posted by {{quote.description}}</h4>
+                </div>
+        </div>
+        <div class="col-md-4">
+                <div class="card">
+                        <h6> submitted by {{quote.description}} </h6>
+                </div>
+        </div>
+        <div class="col-md-4">
+                <div class="card">
+                        <p>This quote was posted {{quote.postDate|dateCount}} .</p>
+                        <app-count-input></app-count-input>
+
+                </div>
+        </div>
+
+        <button (click)='quoteDelete(true)' class="btn btn-outline-danger">Delete Quote</button>
+</div>
+
+</div>
