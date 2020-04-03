@@ -1,9 +1,9 @@
 body {
   background-color: #15f7ca;
-  background-image: url();
+  background-image: url(https://thumbs.dreamstime.com/z/target-achievement-mountain-adventure-taurus-mountains-altitude-meter-61542260.jpg);
+  background-size: 2000px 2000px;
   height: 120vh;
-  margin-bottom: 0;
-  
+  margin-bottom: 0;  
 }
 
 .card {
