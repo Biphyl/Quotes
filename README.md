@@ -9,7 +9,7 @@ Biron Otieno Odhiambo
 
 ## Installation
 To view the website 
-.Step 1 : Clone this repo : git clone ().
+.Step 1 : Clone this repo : git clone (https://github.com/Biphyl/Quotes).
 .Step 2 : Open the repo using prefered text editor e.g Visual Studio Code or Atom .
 .Step 3 : Traverse through the folder using terminal.
 
